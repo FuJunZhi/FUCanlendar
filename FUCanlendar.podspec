@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
     s.authors      = {"fujunzhi" => "185476975@qq.com"}
     s.platform     = :ios, "6.0"
     s.source       = {:git => "https://github.com/FuJunZhi/FUCanlendar.git", :tag => s.version}
-    s.source_files = "FUCanlendar/*.{h,m}"
+    s.source_files = "FUCanlendar/*.{h,m,xib}"
     s.requires_arc = true
 end
