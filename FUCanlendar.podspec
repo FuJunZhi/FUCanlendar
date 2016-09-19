@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "FUCanlendar"
-    s.version      = "0.0.1"
+    s.version      = "1.0.0"
     s.summary      = "custom canlendar"
     s.homepage     = "https://github.com/FuJunZhi/FUCanlendar"
     s.license      = "MIT"
