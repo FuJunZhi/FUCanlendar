@@ -1,7 +1,16 @@
 # FUCanlendar
-Custom Calendar view
+*Custom Calendar view
 
 # initialize
+==============
+
+### CocoaPods
+Installation with CocoaPods
+1. Add `pod 'FUCanlendar 1.0.1'` to your Podfile.
+2. Run `pod install` or `pod update`.
+3. #import "FUCanlendarView.h".
+
+
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
  
 2.frame:CGRect;  effectBlock: 一次性设置所有的效果
@@ -17,36 +26,36 @@ Custom Calendar view
  + (instancetype)fuCanlendarViewWithFrame:(CGRect)frame effect:(EffectBlock)effectBlock didSelectItem:(DidSelectItem)didselectItem lastBtnClick:(LastBtnClick)lastBtnClick nextBtnClick:(NextBtnClick)nextBtnClick;
 
 # setup
-边框颜色
+1.边框颜色
 @property (strong, nonatomic) UIColor *borderColor;
 
-本月字体颜色
+2.本月字体颜色
 @property (strong, nonatomic) UIColor *monthTextColor;
 
-本月日历颜色
+3.本月日历颜色
 @property (strong, nonatomic) UIColor *dayColor;
 
-选中颜色
+4.选中颜色
 @property (strong, nonatomic) UIColor *daySelectColor;
 
-非本月字体颜色
+5.非本月字体颜色
 @property (strong, nonatomic) UIColor *otherMonthTextColor;
 
-非本月日历颜色
+6.非本月日历颜色
 @property (strong, nonatomic) UIColor *otherDayColor;
 
-字体
+7.字体
 @property (strong, nonatomic) UIFont *textFont;
 
-选中字体
+8.选中字体
 @property (strong, nonatomic) UIFont *textSelectFont;
 
-每周第一天（周一至周日：1-7，默认7）
+9.每周第一天（周一至周日：1-7，默认7）
 @property (assign, nonatomic) NSInteger firstWeekday;
 
-周标题边框样式
+10.周标题边框样式
 @property (assign, nonatomic) WeekBorderType weekBorderType;
 
 
-//一次性设置所有的效果
+.一次性设置所有的效果
 - (void)setUpEffect:(EffectBlock)effectBlock;
