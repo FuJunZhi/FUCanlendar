@@ -1,7 +1,6 @@
 # FUCanlendar
 *Custom Calendar view
 
-# initialize
 
 ### CocoaPods
 
@@ -11,7 +10,8 @@
 
 3. #import "FUCanlendarView.h".
 
-==============
+
+#initialize
 
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
  
