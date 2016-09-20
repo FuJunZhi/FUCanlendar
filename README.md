@@ -10,6 +10,7 @@
 2. Run `pod install` or `pod update`.
 
 3. #import "FUCanlendarView.h".
+
 ==============
 
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
