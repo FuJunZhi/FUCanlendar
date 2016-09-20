@@ -2,14 +2,15 @@
 *Custom Calendar view
 
 # initialize
-==============
 
 ### CocoaPods
-Installation with CocoaPods
-1. Add `pod 'FUCanlendar 1.0.1'` to your Podfile.
-2. Run `pod install` or `pod update`.
-3. #import "FUCanlendarView.h".
 
+1. Add `pod 'FUCanlendar 1.0.1'` to your Podfile.
+
+2. Run `pod install` or `pod update`.
+
+3. #import "FUCanlendarView.h".
+==============
 
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
  
