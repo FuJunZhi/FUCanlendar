@@ -8,7 +8,7 @@
 
   2. Run `pod install` or `pod update`.
 
-  3. #import "FUCanlendarView.h".
+  3. '#import "FUCanlendarView.h"'.
 
 
 #initialize
