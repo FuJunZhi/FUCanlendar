@@ -12,22 +12,28 @@
 
 
 #initialize
-
+## <a id="initialize"></a>
+```objc
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
- 
+
 2.frame:CGRect;  effectBlock: 一次性设置所有的效果
 
- + (instancetype)fuCanlendarViewWithFrame:(CGRect)frame effect:(EffectBlock)effectBlock;
++ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame effect:(EffectBlock)effectBlock;
 
 3.frame:CGRect;  didselectItem:选中Item;  lastBtnClick:上个月点击事件;  nextBtnClick:下个月点击事件
 
- + (instancetype)fuCanlendarViewWithFrame:(CGRect)frame didSelectItem:(DidSelectItem)didselectItem lastBtnClick:(LastBtnClick)lastBtnClick nextBtnClick:(NextBtnClick)nextBtnClick;
++ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame didSelectItem:(DidSelectItem)didselectItem lastBtnClick:(LastBtnClick)lastBtnClick nextBtnClick:(NextBtnClick)nextBtnClick;
 
 4.frame:CGRect; effectBlock:一次性设置所有的效果;  tem:选中Item;  lastBtnClick:上个月点击事件;  nextBtnClick:下个月点击事件
- 
- + (instancetype)fuCanlendarViewWithFrame:(CGRect)frame effect:(EffectBlock)effectBlock didSelectItem:(DidSelectItem)didselectItem lastBtnClick:(LastBtnClick)lastBtnClick nextBtnClick:(NextBtnClick)nextBtnClick;
+
++ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame effect:(EffectBlock)effectBlock didSelectItem:(DidSelectItem)didselectItem lastBtnClick:(LastBtnClick)lastBtnClick nextBtnClick:(NextBtnClick)nextBtnClick;
+@end
+```
+
 
 # setup
+## <a id="setup"></a>
+```objc
 1.边框颜色
 @property (strong, nonatomic) UIColor *borderColor;
 
@@ -61,3 +67,5 @@
 
 .一次性设置所有的效果
 - (void)setUpEffect:(EffectBlock)effectBlock;
+@end
+```
