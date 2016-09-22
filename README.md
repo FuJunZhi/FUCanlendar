@@ -4,7 +4,7 @@
 
 ### CocoaPods
 
-  1. Add `pod 'FUCanlendar', '~> 1.0.1'` to your Podfile.
+  1. Add `pod 'FUCanlendar', '~> 1.0.2'` to your Podfile.
 
   2. Run `pod install` or `pod update`.
 

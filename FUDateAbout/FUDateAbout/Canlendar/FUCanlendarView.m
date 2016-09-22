@@ -210,9 +210,9 @@ weakSelf.textSelectFont = textSelectFont;\
     if (!_contentCV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         //左右
-        layout.minimumInteritemSpacing = 1;
+        layout.minimumInteritemSpacing = 0.0f;
         //上下
-        layout.minimumLineSpacing = 1;
+        layout.minimumLineSpacing = 1.0f;
         
         UICollectionView *contentCV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         self.contentCV = contentCV;
@@ -505,13 +505,12 @@ weakSelf.textSelectFont = textSelectFont;\
 //设置每一个 item 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize collectionSize = collectionView.bounds.size;
-    CGFloat itemW = (collectionSize.width  - 6) / 7;
+    double itemW = (collectionSize.width - 6.0f) / 7.0f;
     if (collectionView == self.weekTitleCV)
         return CGSizeMake(itemW, collectionSize.height);
     else
         return CGSizeMake(itemW, FUDayHeight);
 }
-
 
 #pragma mark - 上一月、下一月
 
@@ -568,21 +567,23 @@ weakSelf.textSelectFont = textSelectFont;\
     CGFloat weekTitleY = (self.weekBorderType == WeekBorderTypeGap ? 0 : 1);
     CGFloat weekTitleW = bgW - 2 * weekTitleX;
     CGFloat weekTitleH = FUWeekHeight;
-    self.weekTitleCV.frame = CGRectMake(weekTitleX, weekTitleY, weekTitleW, weekTitleH);
+    
     
     //设置内容frame
     CGFloat contentX = 1;
-    CGFloat contentY = CGRectGetMaxY(self.weekTitleCV.frame) + contentX;
+    CGFloat contentY = weekTitleY + weekTitleH + contentX;
     CGFloat contentW = bgW - 2 * contentX;
     NSInteger lineCount = self.dateDtaArray.count / 7;
     CGFloat realityH = lineCount * FUDayHeight + (lineCount - 1);
     CGFloat visualH = self.frame.size.height - bgY - contentY;
-    self.contentCV.frame = CGRectMake(contentX, contentY, contentW, MIN(realityH, visualH));
-    self.contentCV.contentSize = CGSizeMake(contentW, MAX(visualH, realityH));
+    CGFloat contentH = MIN(realityH, visualH);
     
     //设置背景frame
-    CGFloat bgH = CGRectGetMaxY(self.contentCV.frame) + contentX;
+    CGFloat bgH = contentY + contentH + contentX;
     self.backgroundView.frame = CGRectMake(bgX, bgY, bgW, bgH);
+    self.weekTitleCV.frame = CGRectMake(weekTitleX, weekTitleY, weekTitleW, weekTitleH);
+    self.contentCV.frame = CGRectMake(contentX, contentY, contentW, contentH);
+    self.contentCV.contentSize = CGSizeMake(contentW, MAX(visualH, realityH));
 }
 
 - (void)drawRect:(CGRect)rect
