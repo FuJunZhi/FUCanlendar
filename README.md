@@ -10,6 +10,8 @@
 
   3. '#import "FUCanlendarView.h"'.
 
+### 效果图
+<img src="http://i1.bvimg.com/606664/9e52b8147eec29dc.gif" width="30%" height="30%">
 
 #initialize
 ## <a id="initialize"></a>

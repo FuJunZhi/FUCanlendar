@@ -21,7 +21,7 @@ UIColor *otherMonthTextColor;\
 UIFont *textFont;\
 UIFont *textSelectFont;\
 if (effectBlock) \
-    effectBlock(&borderColor,&monthTextColor,&dayColor,&daySelectColor,&otherDayColor,&otherMonthTextColor,&textFont,&textSelectFont);\
+effectBlock(&borderColor,&monthTextColor,&dayColor,&daySelectColor,&otherDayColor,&otherMonthTextColor,&textFont,&textSelectFont);\
 weakSelf.borderColor = borderColor;\
 weakSelf.monthTextColor = monthTextColor;\
 weakSelf.dayColor = dayColor;\
@@ -77,9 +77,9 @@ weakSelf.textSelectFont = textSelectFont;\
 - (NSDictionary *)todayDic
 {
     if (!_todayDic) {
-    /*key值:
-        S: 时间 Y: 年 M: 月 D: 日 
-     */
+        /*key值:
+         S: 时间 Y: 年 M: 月 D: 日
+         */
         self.todayDic = @{};
     }
     return _todayDic;
@@ -241,7 +241,7 @@ weakSelf.textSelectFont = textSelectFont;\
         FUCandarModel *model = [self fuCandarModelWithType:MonthTypeOfOther text:weekDic[@(week)]];
         [self.weekStrArr addObject:model];
     }
-//    [self.weekTitleCV reloadData];
+    //    [self.weekTitleCV reloadData];
     [self computeDateMany];
 }
 
@@ -338,7 +338,7 @@ weakSelf.textSelectFont = textSelectFont;\
     }
     [self setNeedsLayout];
     [self setNeedsDisplay];
-//    [self.contentCV reloadData];
+    //    [self.contentCV reloadData];
     
 }
 
@@ -381,7 +381,7 @@ weakSelf.textSelectFont = textSelectFont;\
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy年MM月dd日"];
     NSString *currentDate = [formatter stringFromDate:date];
-
+    
     NSArray *yearMonthDay = [currentDate componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"年月日"]];
     _year = [yearMonthDay[0] integerValue];
     _month = [yearMonthDay[1] integerValue];
@@ -399,12 +399,15 @@ weakSelf.textSelectFont = textSelectFont;\
     [_comps setDay:1];
     [_comps setMonth:_month];
     [_comps setYear:_year];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 ?NSCalendarIdentifierGregorian : NSGregorianCalendar];
     NSDate *_date = [gregorian dateFromComponents:_comps];
     NSDateComponents *weekdayComponents =
-    [gregorian components:NSWeekdayCalendarUnit fromDate:_date];
+    [gregorian components:NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 ? NSCalendarUnitWeekday : NSWeekdayCalendarUnit fromDate:_date];
     _week = [weekdayComponents weekday]; // 星期天是 1
+#pragma clang diagnostic pop
 }
 
 //计算月有几天
@@ -471,7 +474,7 @@ weakSelf.textSelectFont = textSelectFont;\
             _didSelectItem(cell,_year,_month,_day);
         }
         
-        NSLog(@"fu_DidSelectItemAtIndexPath<%ld,%ld>：%@",indexPath.section,indexPath.item,self.titleLabel.text);
+        NSLog(@"fu_DidSelectItemAtIndexPath<%ld,%ld>：%@",(long)indexPath.section,(long)indexPath.item,self.titleLabel.text);
     }
 }
 

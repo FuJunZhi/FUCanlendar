@@ -87,7 +87,7 @@ weakSelf.textSelectFont = textSelectFont;\
 
 - (NSString *)selectDate
 {
-    return [NSString stringWithFormat:@"%lu年%lu月%lu日",(long)_year,(long)_month,(long)_day];
+    return [NSString stringWithFormat:@"%ld年%ld月%ld日",(long)_year,(long)_month,(long)_day];
 }
 
 - (void)setDay:(NSInteger)day
@@ -399,12 +399,15 @@ weakSelf.textSelectFont = textSelectFont;\
     [_comps setDay:1];
     [_comps setMonth:_month];
     [_comps setYear:_year];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 ?NSCalendarIdentifierGregorian : NSGregorianCalendar];
     NSDate *_date = [gregorian dateFromComponents:_comps];
     NSDateComponents *weekdayComponents =
-    [gregorian components:NSWeekdayCalendarUnit fromDate:_date];
+    [gregorian components:NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 ? NSCalendarUnitWeekday : NSWeekdayCalendarUnit fromDate:_date];
     _week = [weekdayComponents weekday]; // 星期天是 1
+#pragma clang diagnostic pop
 }
 
 //计算月有几天

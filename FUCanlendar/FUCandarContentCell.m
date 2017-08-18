@@ -20,10 +20,6 @@
 
 @implementation FUCandarContentCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
 
 - (void)setModel:(FUCandarModel *)model
 {

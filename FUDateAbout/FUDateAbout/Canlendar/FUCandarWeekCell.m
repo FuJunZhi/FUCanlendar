@@ -17,10 +17,6 @@
 
 @implementation FUCandarWeekCell
 
-- (void)awakeFromNib {
-    // Initialization code
-    
-}
 
 - (void)setModel:(FUCandarModel *)model
 {
