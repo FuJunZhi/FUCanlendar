@@ -13,7 +13,7 @@
 ### 效果图
 ![效果演示](https://github.com/FuJunZhi/FUResources/blob/master/Images/FUCanlendar.gif)
 
-#initialize
+initialize
 ## <a id="initialize"></a>
 ```objc
 1.+ (instancetype)fuCanlendarViewWithFrame:(CGRect)frame;
