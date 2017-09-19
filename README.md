@@ -11,7 +11,7 @@
   3. '#import "FUCanlendarView.h"'.
 
 ### 效果图
-<img src="http://i1.bvimg.com/606664/834b0fff834c3bd4.gif" width="30%" height="30%">
+![效果演示](https://github.com/FuJunZhi/FUResources/blob/master/Images/FUCanlendar.gif)
 
 #initialize
 ## <a id="initialize"></a>
